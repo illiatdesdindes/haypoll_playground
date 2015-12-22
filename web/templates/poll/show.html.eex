@@ -2,32 +2,39 @@
 
 <h2>Show poll</h2>
 
-<ul>
+<div class="col-xs-8">
+  <ul>
 
-  <li>
-    <strong>Title:</strong>
-    <%= @poll.title %>
-  </li>
+    <li>
+      <strong>Title:</strong>
+      <%= @poll.title %>
+    </li>
 
-  <li>
-    <strong>Closed:</strong>
-    <%= @poll.closed %>
-  </li>
+    <li>
+      <strong>Closed:</strong>
+      <%= @poll.closed %>
+    </li>
 
- <li>
-    <strong>Entries:</strong>
-    <ul>
-      <%= for entry <- @poll.entries do %>
-        <li class="entry" data-entry-id="<%= entry.id %>">
-          <span class="votes"><%= entry.votes %></span> votes:
-          <%= entry.title %>
-          <%= link "Vote", to: "#", class: "btn btn-info vote" %>
-        </li>
-      <% end %>
-    </ul>
-  </li>
+   <li>
+      <strong>Entries:</strong>
+      <ul>
+        <%= for entry <- @poll.entries do %>
+          <li class="entry" data-entry-id="<%= entry.id %>">
+            <span class="votes"><%= entry.votes %></span> votes:
+            <span class="title"><%= entry.title %></span>
+            <%= link "Vote", to: "#", class: "btn btn-info vote" %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
 
-</ul>
+  </ul>
+</div>
+
+<div class="col-xs-4">
+    <div id="my-chart"></div>
+</div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <%= link "Edit", to: poll_path(@conn, :edit, @poll) %>
 <%= link "Back", to: poll_path(@conn, :index) %>
