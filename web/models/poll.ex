@@ -5,7 +5,7 @@ defmodule Haypoll.Poll do
     field :title, :string
     field :closed, :boolean, default: false
 
-    has_many :entires, Haypoll.Entry, on_delete: :delete_all
+    has_many :entries, Haypoll.Entry, on_delete: :delete_all
 
     timestamps
   end

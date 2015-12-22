@@ -1,3 +1,5 @@
+<input type="hidden" id="poll-id" value="<%= @poll.id %>">
+
 <h2>Show poll</h2>
 
 <ul>
@@ -10,6 +12,19 @@
   <li>
     <strong>Closed:</strong>
     <%= @poll.closed %>
+  </li>
+
+ <li>
+    <strong>Entries:</strong>
+    <ul>
+      <%= for entry <- @poll.entries do %>
+        <li class="entry" data-entry-id="<%= entry.id %>">
+          <span class="votes"><%= entry.votes %></span> votes:
+          <%= entry.title %>
+          <%= link "Vote", to: "#", class: "btn btn-info vote" %>
+        </li>
+      <% end %>
+    </ul>
   </li>
 
 </ul>
