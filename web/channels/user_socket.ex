@@ -3,6 +3,8 @@ defmodule Haypoll.UserSocket do
 
   ## Channels
   # channel "rooms:*", Haypoll.RoomChannel
+  channel "polls:*", Haypoll.PollChannel
+
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
